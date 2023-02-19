@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&display=swap");
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+.main {
+    height: 100vh;
+}
+
+.navbar {
+    padding: 3px;
+    background-color: #806f66 !important;
+}
+.navbar-brand {
+    font-size: 23px;
+}
+
+.nav-item {
+    margin: 3px 5px 3px 5px;
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 18px;
+}
+
+.sidebar {
+    background-color: #383636;
+    color: #fffaf0;
+}
+
+.sidebar > ul {
+    list-style: none;
+}
+
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    color: #f2f2f2;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 25px 20px 25px 20px;
+    padding: 5px;
+}
+
+.sidebar a:hover {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+.active {
+    background-color: #806f66;
+    border-radius: 5px;
+    border-left: solid white;
+}
+
+.card-data {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 20px 50px;
+    color: white;
+}
+
+.card-data.book {
+    background-color: #4d4dff;
+}
+
+.card-data.category {
+    background-color: #e67300;
+}
+
+.card-data.user {
+    background-color: #00b300;
+}
+
+.card-data i {
+    font-size: 80px;
+}
+
+.card-desc {
+    font-size: 30px;
+}
+
+.card-count {
+    font-size: 28px;
+}
+
+.btn-back {
+    font-size: 35px;
+}
+
+.btn-add {
+    background-color: #b38600;
+    color: white;
+    border: 1px solid #b38600;
+}
+
+.btn-add:hover {
+    background-color: #806000;
+    color: white;
+    font-weight: bold;
+    border-color: #806000;
+}
+
+.btn-view {
+    background-color: #804000;
+    border-color: #804000;
+}
+
+.btn-view:hover {
+    background-color: #804000;
+    border-color: #804000;
+    font-weight: bold;
+}
+
+.action-edit {
+    color: #cccc00;
+    font-size: 20px;
+}
+
+.action-delete {
+    color: #cc0000;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.action-edit:hover {
+    color: black;
+}
+
+.action-delete:hover {
+    color: black;
+}
+
+.btn-danger,
+.btn-success {
+    margin: 15px 10px;
+}
+
+.btn-restore {
+    color: #cccc00;
+    font-size: 25px;
+    padding: 1px;
+}
+
+.btn-restore:hover {
+    font-weight: bold;
+    color: black;
+}
