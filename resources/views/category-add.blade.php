@@ -23,7 +23,7 @@
         <div class="form-group row">
           <label for="name" class="col-sm-2 col-form-label">Name</label>
           <div class="col-sm-10">
-            <input type="text" name="name" class="form-control" id="name" placeholder="category name...">
+            <input type="text" name="name" class="form-control" id="name" placeholder="category name..." value="{{ old('name') }}">
           </div>
         </div>
         <div class="mt-3 d-flex justify-content-center">

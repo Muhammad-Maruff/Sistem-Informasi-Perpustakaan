@@ -19,7 +19,7 @@
     </div>
     
     <div class>
-        <table class="table text-center justify-content-center align-items-center">
+        <table class="table text-center justify-content-center align-items-center mt-5">
             <thead>
                 <tr>
                     <th>No</th>
