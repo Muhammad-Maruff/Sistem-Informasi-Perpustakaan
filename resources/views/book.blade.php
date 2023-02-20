@@ -26,6 +26,7 @@
                 <th>No</th>
                 <th>Code</th>
                 <th>Title</th>
+                <th>Category</th>
                 <th>Status</th>
                 @if (Auth::user()->role_id == 1)
                 <th>Action</th>    
@@ -37,12 +38,17 @@
             @foreach ($books as $book)
             <tbody>
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $book->book_code }}</td>
-                    <td>{{ $book->title }}</td>
-                    <td>{{ $book->status }}</td>
-                    @if (Auth::user()->role_id == 1)
+                    <td class="align-middle">{{ $loop->iteration }}</td>
+                    <td class="align-middle">{{ $book->book_code }}</td>
+                    <td class="align-middle">{{ $book->title }}</td>
                     <td>
+                        @foreach ($book->categories as $category)
+                            {{ $category->name }} <br> 
+                        @endforeach
+                    </td>
+                    <td class="align-middle">{{ $book->status }}</td>
+                    @if (Auth::user()->role_id == 1)
+                    <td class="align-middle">
                         <a href=""><i class="action-edit bi bi-pencil-square"></i></a>
                         <a href=""><i class="action-delete bi bi-trash3-fill"></i></a>
                     </td>
