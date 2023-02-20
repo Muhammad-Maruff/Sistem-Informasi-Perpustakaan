@@ -1,5 +1,5 @@
 @extends('layouts.mainLayout')
-@section('title', 'Add Book')
+@section('title', 'Edit Book')
 
 @section('content')
 
@@ -7,7 +7,7 @@
 
 
     <a href="/books" class="btn btn-back"><i class="bi bi-arrow-left-square-fill"></i></a>
-    <h1 class="text-center mt-5">Add New Book</h1>
+    <h1 class="text-center mt-5">Edit Book</h1>
 
     <div class="text-center d-flex align-items-center">
         @if ($errors->any())
@@ -21,20 +21,20 @@
         @endif
     </div>
 
-    <form action="book-add" method="post" class="mt-5 container w-50" enctype="multipart/form-data">
+    <form action="/book-edit/{{ $book->slug }}" method="post" class="mt-5 container w-50" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group row">
                 <label for="code" class="col-sm-2 col-form-label">Code</label>
         <div class="col-sm-10">
-             <input type="text" name="book_code" class="form-control" id="code" placeholder="book code..." value="{{ old('book_code') }}">
+             <input type="text" name="book_code" class="form-control" id="code" placeholder="book code..." value="{{ $book->book_code }}">
             </div>
         </div>
 
         <div class="form-group row mt-3">
             <label for="title" class="col-sm-2 col-form-label">Title</label>
         <div class="col-sm-10">
-            <input type="text" name="title" class="form-control" id="title" placeholder="book title..." value="{{ old('title') }}">
+            <input type="text" name="title" class="form-control" id="title" placeholder="book title..." value="{{ $book->title }}">
             </div>
         </div>
 
@@ -46,16 +46,38 @@
         </div>
 
         <div class="form-group row mt-3">
+            <label for="category" class="col-sm-2 col-form-label">Current Image</label>
+        <div class="col-sm-10">
+            @if ($book->cover != '')
+                <img src="{{ asset('storage/cover/'.$book->cover) }}" alt="" style="width: 150px">
+            @else
+                <img src="{{ asset('images/cover_not_found.jpg') }}" alt="" style="width: 150px">
+            @endif
+            </div>
+        </div>
+
+        <div class="form-group row mt-3">
             <label for="category" class="col-sm-2 col-form-label">Category</label>
         <div class="col-sm-10">
             <select name="categories[]" id="category" class="form-select select-multiple" multiple>
                 @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
-
             </select>
             </div>
         </div>
+
+        <div class="form-group row mt-3">
+            <label for="category" class="col-sm-2 col-form-label">Current Category</label>
+        <div class="col-sm-10">
+            <ul>
+                @foreach ($book->categories as $category)
+                    <li>{{ $category->name }}</li>
+                @endforeach
+            </ul>
+            </div>
+        </div>
+        
 
         <div class="mt-4 d-flex justify-content-center">
         <button class="btn btn-add" type="submit">Save</button>

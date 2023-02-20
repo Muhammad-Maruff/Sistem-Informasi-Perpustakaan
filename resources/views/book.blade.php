@@ -49,7 +49,7 @@
                     <td class="align-middle">{{ $book->status }}</td>
                     @if (Auth::user()->role_id == 1)
                     <td class="align-middle">
-                        <a href=""><i class="action-edit bi bi-pencil-square"></i></a>
+                        <a href="/book-edit/{{ $book->slug }}"><i class="action-edit bi bi-pencil-square"></i></a>
                         <a href=""><i class="action-delete bi bi-trash3-fill"></i></a>
                     </td>
                     @endif
