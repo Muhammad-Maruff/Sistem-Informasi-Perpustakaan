@@ -1,15 +1,9 @@
 @extends('layouts.mainLayout')
-@section('title','User')
+@section('title','Registered User')
 
 @section('content')
-    <h1>User List</h1>
-
-    @if (Auth::user()->role_id==1)
-    <div class="mt-4 d-flex justify-content-end">
-        <a href="#" class="btn btn-primary btn-view"><i class="bi bi-eye-fill me-2"></i>Banned User</a>
-        <a href="/registered-users" class="btn btn-primary btn-add ms-3"><i class="bi bi-eye-fill me-2"></i>Registered User</a>
-    </div>
-    @endif
+<a href="/users" class="btn btn-back"><i class="bi bi-arrow-left-square-fill"></i></a>
+    <h1 class="mt-5">New Registered User List</h1>
 
     <div class="mt-5 div text-center d-flex align-items-center">
         @if (session('status'))
@@ -30,26 +24,19 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            @foreach ($users as $user)
+
+            @foreach ($registeredUser as $user)
             <tbody>
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $user->username }}</td>
-                    <td>
-                        @if ($user->phone)
-                            {{ $user->phone }}
-                        @else
-                            -
-                        @endif
-                    </td>
+                    <td>{{ $user->phone }}</td>
                     <td>
                         <a href="user-detail/{{ $user->slug }}"><i class="action-edit bi bi-eye-fill"></i></a>
-                        <a href="user-delete/{{ $user->slug }}"><i class="action-delete bi bi-x-circle-fill"></i></a>
                     </td>
                 </tr>
             </tbody>
             @endforeach
-
         </table>
     </div>
 @endsection
