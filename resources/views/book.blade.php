@@ -6,7 +6,7 @@
 
     @if (Auth::user()->role_id==1)
     <div class="mt-5 d-flex justify-content-end">
-        <a href="#" class="btn btn-primary btn-view"><i class="bi bi-eye-fill me-2"></i>Deleted Data</a>
+        <a href="/book-deleted" class="btn btn-primary btn-view"><i class="bi bi-eye-fill me-2"></i>Deleted Data</a>
         <a href="/book-add" class="btn btn-primary btn-add ms-3">+ Add New</a>
     </div>
     @endif
@@ -50,7 +50,7 @@
                     @if (Auth::user()->role_id == 1)
                     <td class="align-middle">
                         <a href="/book-edit/{{ $book->slug }}"><i class="action-edit bi bi-pencil-square"></i></a>
-                        <a href=""><i class="action-delete bi bi-trash3-fill"></i></a>
+                        <a href="/book-delete/{{ $book->slug }}"><i class="action-delete bi bi-trash3-fill"></i></a>
                     </td>
                     @endif
                 </tr>

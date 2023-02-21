@@ -59,11 +59,11 @@
                         @endif>Profile</a>
                         @endif
 
-                        <a href="/categories" @if (request()->route()->uri == 'categories' || request()->route()->uri =='category-add' || request()->route()->uri =='category-deleted' || request()->route()->uri =='category-edit/{slug}')
+                        <a href="/categories" @if (request()->route()->uri == 'categories' || request()->route()->uri =='category-add' || request()->route()->uri =='category-delete/{slug}' || request()->route()->uri =='category-edit/{slug}')
                             class="active"
                         @endif>Category</a>
 
-                        <a href="/books" @if (request()->route()->uri == 'books')
+                        <a href="/books" @if (request()->route()->uri == 'books' || request()->route()->uri =='book-add' || request()->route()->uri =='book-delete/{slug}' ||request()->route()->uri == 'book-edit/{slug}')
                             class="active"
                         @endif>Book</a>
 
