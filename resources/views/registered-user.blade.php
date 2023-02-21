@@ -30,7 +30,13 @@
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $user->username }}</td>
-                    <td>{{ $user->phone }}</td>
+                    <td>
+                        @if ($user->phone)
+                        {{ $user->phone }}
+                        @else
+                        -
+                        @endif
+                    </td>
                     <td>
                         <a href="user-detail/{{ $user->slug }}"><i class="action-edit bi bi-eye-fill"></i></a>
                     </td>
