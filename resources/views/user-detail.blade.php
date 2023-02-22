@@ -13,11 +13,13 @@
         @endif
     </div>
 
-    @if ($user->status == 'inactive')
     <div class="mt-4 d-flex justify-content-end">
-        <a href="/user-approve/{{ $user->slug }}" class="btn-view" style="border-radius: 50%; font-size:50px; padding:0; background-color:white"><i class="bi bi-check-circle-fill" style="color:#009933"></i></a>
-    </div>
+        <a href="/user-ban/{{ $user->slug }}" class="btn-view mt-2" style="padding:0; background-color:white"><i class="action-delete fa-solid fa-ban" style="font-size:50px"></i></a>
+    @if ($user->status == 'inactive')
+        <a href="/user-approve/{{ $user->slug }}" class="btn-view ms-3" style="border-radius: 50%; font-size:50px; padding:0; background-color:white"><i class="bi bi-check-circle-fill" style="color:#009933"></i></a>
+    
     @endif
+</div>
 
 
     <div class="mt-2">
