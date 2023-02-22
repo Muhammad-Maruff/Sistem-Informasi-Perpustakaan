@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RentLogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
@@ -19,9 +20,7 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
+Route::get('/', [PublicController::class, 'index']);
 
 // route untuk yang belum login
 Route::middleware('only_guest')->group(function(){
@@ -33,9 +32,13 @@ Route::middleware('only_guest')->group(function(){
 
 // route yang sudah login
 Route::middleware('auth')->group(function(){
-    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['only_admin']);
-
     Route::get('/profile', [UserController::class, 'profile'])->middleware(['only_client']);
+    Route::get('/logout', [AuthController::class, 'logout']);
+
+});
+
+Route::middleware('only_admin')->group(function(){
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['only_admin']);
 
     Route::get('/books', [BookController::class, 'index']);
     Route::get('/book-add', [BookController::class, 'add']);
@@ -68,7 +71,4 @@ Route::middleware('auth')->group(function(){
     Route::get('/category-destroy/{slug}', [CategoryController::class, 'destroy']);
     Route::get('/category-deleted', [CategoryController::class, 'deletedCategory']);
     Route::get('/category-restore/{slug}', [CategoryController::class, 'restore']);
-
-    Route::get('/logout', [AuthController::class, 'logout']);
-
 });

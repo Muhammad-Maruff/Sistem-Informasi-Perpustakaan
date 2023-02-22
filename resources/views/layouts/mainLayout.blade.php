@@ -21,11 +21,14 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            @if(Auth::user())
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold">
-                    {{ Auth::user()->username }}
+                       
+                        {{ auth()->user()->username }}
+                       
                     </a>
                     <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/logout"><i class="bi bi-box-arrow-right" style="font-size: 20px"></i>  Logout</a></li>
@@ -33,6 +36,17 @@
                 </li>
                 </ul>
             </div>
+            @else
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login" role="button" aria-expanded="false" style="font-weight: bold">
+                        Login
+                    </a>
+                </li>
+                </ul>
+            </div>
+            @endif
         </div>
         </nav>
       {{-- end navbar  --}}
@@ -41,24 +55,19 @@
         <div class="body-content h-100">
             <div class="row g-0 h-100">
                 <div class="sidebar col-lg-2 collapse d-lg-block" id="navbarNav">
-                    <ul>
+                    <ul>@auth
                         @if (Auth::user()->role_id == 1)
                         <a href="/dashboard" @if (request()->route()->uri == 'dashboard')
                             class="active"
                         @endif>Dashboard</a>
-                        <a href="/users" @if (request()->route()->uri == 'users')
+
+                        <a href="/users" @if (request()->route()->uri == 'users' || request()->route()->uri == 'user-banned' || request()->route()->uri == 'registered-users' || request()->route()->uri == 'user-detail/{slug}' || request()->route()->uri == 'user-ban/{slug}')
                             class="active"
                         @endif>User</a>
+
                         <a href="/rent-logs" @if (request()->route()->uri == 'rent-logs')
                             class="active"
                         @endif>Rent Log</a>
-                        @endif
-                        
-                        @if (Auth::user()->role_id == 2)
-                        <a href="/profile" @if (request()->route()->uri == 'profile')
-                            class="active"
-                        @endif>Profile</a>
-                        @endif
 
                         <a href="/categories" @if (request()->route()->uri == 'categories' || request()->route()->uri =='category-add' || request()->route()->uri =='category-delete/{slug}' || request()->route()->uri =='category-edit/{slug}')
                             class="active"
@@ -67,7 +76,17 @@
                         <a href="/books" @if (request()->route()->uri == 'books' || request()->route()->uri =='book-add' || request()->route()->uri =='book-delete/{slug}' ||request()->route()->uri == 'book-edit/{slug}')
                             class="active"
                         @endif>Book</a>
-
+                        @endif
+                        
+                        @if (Auth::user()->role_id == 2)
+                        <a href="/profile" @if (request()->route()->uri == 'profile')
+                            class="active"
+                        @endif>Profile</a>
+                        @endif
+                        <a href="/" @if (request()->route()->uri == '/')
+                            class="active"
+                        @endif>Book List</a>
+                        @endauth
 
                     </ul>
                 </div>

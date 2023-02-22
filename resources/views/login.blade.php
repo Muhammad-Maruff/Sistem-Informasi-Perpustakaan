@@ -50,6 +50,7 @@
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Perpustakaan_Nasional_Republik_Indonesia_insignia.svg/1200px-Perpustakaan_Nasional_Republik_Indonesia_insignia.svg.png" alt="" width="100px" height="100px">
                           </span>
                         </div>
+                        
       
                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
       
@@ -67,7 +68,7 @@
                           <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                         </div>
       
-                        <a class="small text-muted" href="#!">Forgot password?</a>
+                        <a class="small text-muted" href="/">Back to Home</a>
                         <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="/register"
                             style="color: #393f81;">Register here</a></p>
                       </form>
