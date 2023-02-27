@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="shortcut icon" href="{{ asset('img/logo-buku.png') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   </head>
 
@@ -64,6 +65,10 @@
                         <a href="/users" @if (request()->route()->uri == 'users' || request()->route()->uri == 'user-banned' || request()->route()->uri == 'registered-users' || request()->route()->uri == 'user-detail/{slug}' || request()->route()->uri == 'user-ban/{slug}')
                             class="active"
                         @endif>User</a>
+
+                        <a href="/book-rent" @if (request()->route()->uri == 'book-rent' )
+                            class="active"
+                        @endif>Book-Rent</a>
 
                         <a href="/rent-logs" @if (request()->route()->uri == 'rent-logs')
                             class="active"

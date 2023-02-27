@@ -25,28 +25,28 @@
         @csrf
 
         <div class="form-group row">
-                <label for="code" class="col-sm-2 col-form-label">Code</label>
+                <label for="code" class="col-sm-2 col-form-label fw-bold">Code</label>
         <div class="col-sm-10">
              <input type="text" name="book_code" class="form-control" id="code" placeholder="book code..." value="{{ old('book_code') }}">
             </div>
         </div>
 
         <div class="form-group row mt-3">
-            <label for="title" class="col-sm-2 col-form-label">Title</label>
+            <label for="title" class="col-sm-2 col-form-label fw-bold">Title</label>
         <div class="col-sm-10">
             <input type="text" name="title" class="form-control" id="title" placeholder="book title..." value="{{ old('title') }}">
             </div>
         </div>
 
         <div class="form-group row mt-3">
-            <label for="image" class="col-sm-2 col-form-label">Image</label>
+            <label for="image" class="col-sm-2 col-form-label fw-bold">Image</label>
         <div class="col-sm-10">
             <input type="file" name="image" class="form-control">
             </div>
         </div>
 
         <div class="form-group row mt-3">
-            <label for="category" class="col-sm-2 col-form-label">Category</label>
+            <label for="category" class="col-sm-2 col-form-label fw-bold">Category</label>
         <div class="col-sm-10">
             <select name="categories[]" id="category" class="form-select select-multiple" multiple>
                 @foreach ($categories as $category)

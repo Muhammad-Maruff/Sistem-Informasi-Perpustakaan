@@ -6,6 +6,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\RentLogController;
+use App\Http\Controllers\BookRentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 
@@ -61,6 +62,10 @@ Route::middleware('only_admin')->group(function(){
     Route::get('/user-restore/{slug}', [UserController::class, 'restore']);
 
     Route::get('/rent-logs', [RentLogController::class, 'index']);
+    
+
+    Route::get('/book-rent', [BookRentController::class, 'index']);
+    Route::post('/book-rent', [BookRentController::class, 'add']);
 
     Route::get('/categories', [CategoryController::class, 'index']);
     Route::get('/category-add', [CategoryController::class, 'add']);
