@@ -20,7 +20,7 @@
 
         <div class="form-group row">
             <label for="user" class="col-sm-2 col-form-label fw-bold">User</label>
-            <div class="col-sm-10">
+            <div class="col-sm-10 mt-2">
             <select class="form-select inputbox" name="user_id" id="user_id">
                 <option selected disabled>Choose User</option>
                 @foreach ($users as $user)
@@ -33,7 +33,7 @@
 
         <div class="form-group row mt-3">
             <label for="book" class="col-sm-2 col-form-label fw-bold">Book</label>
-            <div class="col-sm-10">
+            <div class="col-sm-10 mt-2">
             <select class="form-select inputbox" name="book_id" id="book_id">
                 <option selected disabled>Choose Book</option>
                 @foreach ($books as $book)
