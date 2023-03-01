@@ -15,6 +15,9 @@
 .navbar {
     padding: 3px;
     background-color: #6a5051 !important;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 .navbar-brand {
     font-size: 23px;
@@ -38,6 +41,8 @@ a.nav-link:hover {
 .sidebar {
     background-color: #22191c;
     color: #fffaf0;
+    position: sticky;
+    top: 0;
 }
 
 .sidebar > ul {

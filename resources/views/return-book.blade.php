@@ -1,11 +1,11 @@
 @extends('layouts.mainLayout')
-@section('title', 'Book Rent')
+@section('title', 'Book Return Page')
+
 
 @section('content')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
-    <h1 class="text-center mt-5">Book Rent Form</h1>
+    <h1 class="text-center mt-5">Book Return Form</h1>
 
     <div class="mt-5 div text-center d-flex align-items-center mx-auto">
         @if (session('message'))
@@ -15,7 +15,8 @@
         @endif
     </div>
 
-    <form action="book-rent" method="post" class="mt-3 container w-50">
+
+    <form action="book-return" method="post" class="mt-3 container w-50">
         @csrf
 
         <div class="form-group row">
@@ -37,7 +38,7 @@
             <select class="form-select inputbox" name="book_id" id="book_id">
                 <option selected disabled>Choose Book</option>
                 @foreach ($books as $book)
-                    <option value="{{ $book->id }}">{{ $book-> title}}</option>
+                    <option value="{{ $book->id }}"> {{ $book-> title}} ({{ $book->book_code }})</option>
                 @endforeach
             
               </select>
@@ -58,4 +59,3 @@
     });
       </script>
 @endsection
-    

@@ -76,4 +76,7 @@ Route::middleware('only_admin')->group(function(){
     Route::get('/category-destroy/{slug}', [CategoryController::class, 'destroy']);
     Route::get('/category-deleted', [CategoryController::class, 'deletedCategory']);
     Route::get('/category-restore/{slug}', [CategoryController::class, 'restore']);
+
+    Route::get('/book-return', [BookRentController::class, 'returnBook']);
+    Route::post('/book-return', [BookRentController::class, 'saveReturnBook']);
 });

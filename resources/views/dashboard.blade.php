@@ -42,27 +42,5 @@
         </div>
     </div>
 
-    <div class="mt-5">
-        <h1>Rent Log</h1>
 
-        <table class="table" style="text-align: center">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>User</th>
-                    <th>Book Title</th>
-                    <th>Rent Date</th>
-                    <th>Return Date</th>
-                    <th>Actual Return Date</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td style="text-align: center" colspan="7">No Data</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 @endsection

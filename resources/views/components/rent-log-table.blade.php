@@ -5,6 +5,7 @@
             <tr>
                 <th>No</th>
                 <th>User</th>
+                <th>Book Code</th>
                 <th>Book</th>
                 <th>Rent Date</th>
                 <th>Return Date</th>
@@ -17,6 +18,7 @@
                 <tr class="{{ $rentlogs->actual_return_date == null ? '' : ($rentlogs->return_date < $rentlogs->actual_return_date ? 'text-bg-danger' : 'text-bg-success') }}">
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $rentlogs->user->username }}</td>
+                    <td>{{ $rentlogs->book->book_code }}</td>
                     <td>{{ $rentlogs->book->title }}</td>
                     <td>{{ $rentlogs->rent_date }}</td>
                     <td>{{ $rentlogs->return_date }}</td>
