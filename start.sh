@@ -26,6 +26,12 @@ else
     echo "Continuing anyway..."
 fi
 
+# Clear and cache config for production
+echo "Clearing and caching config..."
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+
 # Start Laravel server
 echo "Starting Laravel server on port $PORT_NUM..."
 php artisan serve --host=0.0.0.0 --port=$PORT_NUM
