@@ -9,13 +9,22 @@ MIGRATION_EXIT_CODE=$?
 
 if [ $MIGRATION_EXIT_CODE -eq 0 ]; then
     echo "Migration completed successfully!"
+    
+    # Run seeders to populate initial data (roles, categories, etc)
+    echo "Running seeders..."
+    php artisan db:seed --force
+    SEEDER_EXIT_CODE=$?
+    
+    if [ $SEEDER_EXIT_CODE -eq 0 ]; then
+        echo "Seeders completed successfully!"
+    else
+        echo "Seeders failed with exit code: $SEEDER_EXIT_CODE"
+        echo "Continuing anyway..."
+    fi
 else
     echo "Migration failed with exit code: $MIGRATION_EXIT_CODE"
     echo "Continuing anyway..."
 fi
-
-# (Optional) Run seeders if needed
-# php artisan db:seed --force
 
 # Start Laravel server
 echo "Starting Laravel server on port $PORT_NUM..."
